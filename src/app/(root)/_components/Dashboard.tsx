@@ -4,9 +4,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Lfx_orgs from './Lfx_orgs';
 import Issues from './Issues';
-import { SearchFilters } from './filters';
+import SearchFilters from './filters';
 import IssueFilter from './issueFilter';
-import { IconExternalLink } from '@tabler/icons-react';
+// import IconExternalLink
+import IconExternalLink from '@tabler/icons-react'
 
 export const Dashboard = () => {
   const [filters, setFilters] = useState({

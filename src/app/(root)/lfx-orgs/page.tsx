@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Lfx_Orgs from '../_components/Lfx_orgs'
-import { div } from 'framer-motion/client'
+// import { div } from 'framer-motion/client'
 import SearchFilters from '../_components/filters'
 
 const page = () => {

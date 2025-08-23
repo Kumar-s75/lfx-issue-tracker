@@ -1,5 +1,5 @@
 {
-  "name": "lfx-issue-tracker",
+  "name": "lfx_issue_tracker.web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,20 +9,28 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.2.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-select": "^5.10.1",
-    "react-spinners": "^0.15.0"
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@tabler/icons-react": "^3.26.0",
+    "axios": "^1.7.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.15.0",
+    "lucide-react": "^0.469.0",
+    "next": "14.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-loading-skeleton": "^3.5.0",
+    "react-select": "^5.9.0",
+    "react-spinners": "^0.15.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }
