@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Select, { MultiValue, ActionMeta } from 'react-select';
 import { fetchLFXOrganizationsNames} from '@/actions/lfx';
+import { IssuesProps } from "@/lib/type";
 
 export const getOrgName = async (github: string): Promise<string> => {
   const url = new URL(github);

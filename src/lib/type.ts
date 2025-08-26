@@ -37,3 +37,14 @@ export type Organisation={
     url:string;
 
 };
+
+// lib/types.ts
+export type IssueFilters = {
+  organizations: string[];
+  label: string;
+};
+
+export type IssuesProps = {
+  filters: IssueFilters;
+  onFilterChange?: (filter: IssueFilters) => void;
+};
