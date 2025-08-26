@@ -18,7 +18,7 @@ const page=()=>{
 
 
 </div>
-<Issues filters={issueFilters}/>
+<Issues filters={issueFilter}/>
         </div>
     )
 }

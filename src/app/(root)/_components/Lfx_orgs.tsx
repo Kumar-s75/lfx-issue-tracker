@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from "react";
-import { BentoGrid, } from "@/components/ui/bento-grid";
+import { BentoGrid,BentoGridItem } from "@/components/ui/bento-grid";
+
 import { Organisation } from "@/lib/type";
 import { ClipLoader } from "react-spinners";
 import { fetchLFXOrganizations } from "@/actions/lfx";

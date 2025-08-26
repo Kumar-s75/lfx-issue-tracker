@@ -7,7 +7,7 @@ import Issues from './Issues';
 import SearchFilters from './filters';
 import IssueFilter from './issueFilter';
 // import IconExternalLink
-import IconExternalLink from '@tabler/icons-react'
+import { IconExternalLink } from "@tabler/icons-react";
 
 export const Dashboard = () => {
   const [filters, setFilters] = useState({

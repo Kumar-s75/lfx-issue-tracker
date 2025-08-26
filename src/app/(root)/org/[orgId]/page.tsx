@@ -3,7 +3,7 @@
 
 import {useEffect,useRef,useState} from "react";
 import {useParams} from "next/navigation";
-import {Organisation} from "@lib/type";
+import {Organisation} from "@/lib/type";
 import { fetchLFXOrgDetails } from "@/actions/lfx";
 import Issues from "../../_components/issueFilter";
 import { getOrgName } from "../../_components/issueFilter";
@@ -25,12 +25,12 @@ useEffect(() => {
 
     const fetchOrgDetails = async () => {
       try {
-        const response = await fetchGSoCOrgDetails(orgId);
+        const response = await fetchLFXOrgDetails(orgId);
         setOrgDetails(response);
 
         const name = await getOrgName(response?.github || '');
         setorgname(name);
-        const firstYear = Object.keys(response.gsoc_years)[0];
+        const firstYear = Object.keys(response.Lfx_years)[0];
         setActiveYear(firstYear);
       } catch (err: any) {
         setError(err.message);
@@ -179,9 +179,9 @@ useEffect(() => {
               </div>
 
               {/* GSoC Years Tabs */}
-              <h2 className="text-xl font-semibold text-gray-200 mt-10">GSoC Years:</h2>
+              <h2 className="text-xl font-semibold text-gray-200 mt-10">Lfx Years:</h2>
               <div className="flex gap-4 mt-4">
-                {Object.keys(orgDetails.gsoc_years).map((year) => (
+                {Object.keys(orgDetails.Lfx_years).map((year) => (
                   <button
                     key={year}
                     className={`px-4 py-2 rounded-lg text-gray-200 font-semibold ${
@@ -198,9 +198,9 @@ useEffect(() => {
 
               {activeYear && orgDetails.gsoc_years[activeYear] && (
                 <div className="bg-transparent rounded-lg shadow-md mt-2">
-                  <p>Total Projects: {orgDetails.gsoc_years[activeYear].projects.length}</p>
+                  <p>Total Projects: {orgDetails.Lfx_years[activeYear].projects.length}</p>
                   <ul className="grid grid-cols-1 gap-4 mt-4">
-                    {orgDetails.gsoc_years[activeYear].projects.map((project, index) => (
+                    {orgDetails.Lfx_years[activeYear].projects.map((project, index) => (
                       <li key={index} className="border-2 px-4 py-2 rounded-lg border-gray-600">
                         <h5 className="font-bold text-gray-300">{project.title}</h5>
                         <p className="text-gray-400">{project.short_description}</p>
