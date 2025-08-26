@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Select, { MultiValue, ActionMeta } from 'react-select';
-import { fetchLFXOrgDetails } from '@/actions/lfx';
+import { fetchLFXOrganizationsNames} from '@/actions/lfx';
 
 export const getOrgName = async (github: string): Promise<string> => {
   const url = new URL(github);
@@ -41,7 +41,7 @@ const IssueFilter = ({ onFilterChange }: { onFilterChange: (filter: any) => void
 
   const fetchOrganizations = async () => {
     try {
-      const response = await fetchLFXOrgDetails();
+      const response = await fetchLFXOrganizationsNames();
       const orgs = await Promise.all(
         response.map(async (org: any) => ({
           label: org.organisation,
