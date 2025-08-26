@@ -245,6 +245,7 @@ const OrganizationDetails = () => {
             ref={issuesRef}
           >
             <h2 className="text-md font-semibold p-4">Popular Issues</h2>
+          {/* @ts-ignore */}
             <Issues filters={{ organizations: [orgName], label: "" }} />
           </div>
         </div>
