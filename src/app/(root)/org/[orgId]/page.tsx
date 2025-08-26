@@ -1,26 +1,24 @@
-
 'use client';
 
-import {useEffect,useRef,useState} from "react";
-import {useParams} from "next/navigation";
-import {Organisation} from "@/lib/type";
+import { useEffect, useRef, useState } from "react";
+import { useParams } from "next/navigation";
+import { Organisation } from "@/lib/type";
 import { fetchLFXOrgDetails } from "@/actions/lfx";
 import Issues from "../../_components/issueFilter";
 import { getOrgName } from "../../_components/issueFilter";
-import {ClipLoader} from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 
-const OrganizationDetails=()=>{
-    const params=useParams();
-    const {orgId}=params;
-    const [orgDetails,setorgDetails]=useState<Organisation|null>(null)
-    const [loading,setLoading]=useState(true);
-    const [error,setError]=useState<string|null>(null);
-    const [activeYear,setActiveYear]=useState<string|null>(null);
-    const [orgname, setorgname] = useState<any>(null);
-    const issuesRef = useRef<HTMLDivElement>(null);
-}
+const OrganizationDetails = () => {
+  const params = useParams();
+  const { orgId } = params;
+  const [orgDetails, setOrgDetails] = useState<Organisation | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [activeYear, setActiveYear] = useState<string | null>(null);
+  const [orgName, setOrgName] = useState<any>(null);
+  const issuesRef = useRef<HTMLDivElement>(null);
 
-useEffect(() => {
+  useEffect(() => {
     if (!orgId) return;
 
     const fetchOrgDetails = async () => {
@@ -29,7 +27,8 @@ useEffect(() => {
         setOrgDetails(response);
 
         const name = await getOrgName(response?.github || '');
-        setorgname(name);
+        setOrgName(name);
+
         const firstYear = Object.keys(response.Lfx_years)[0];
         setActiveYear(firstYear);
       } catch (err: any) {
@@ -86,7 +85,7 @@ useEffect(() => {
                   src={orgDetails.image_url}
                   alt={orgDetails.organisation}
                   className="h-16 rounded-xl p-3"
-                  style={{ backgroundColor: orgDetails.image_background_color }}
+                  style={{ backgroundColor: orgDetails.image_background_colour }}
                 />
                 <div>
                   <h1 className="text-3xl font-bold text-gray-100">{orgDetails.organisation}</h1>
@@ -178,10 +177,10 @@ useEffect(() => {
                 </div>
               </div>
 
-              {/* GSoC Years Tabs */}
+              {/* Lfx Years Tabs */}
               <h2 className="text-xl font-semibold text-gray-200 mt-10">Lfx Years:</h2>
               <div className="flex gap-4 mt-4">
-                {Object.keys(orgDetails.Lfx_years).map((year) => (
+                {Object.keys(orgDetails.lfx_years).map((year) => (
                   <button
                     key={year}
                     className={`px-4 py-2 rounded-lg text-gray-200 font-semibold ${
@@ -196,11 +195,11 @@ useEffect(() => {
                 ))}
               </div>
 
-              {activeYear && orgDetails.gsoc_years[activeYear] && (
+              {activeYear && orgDetails.lfx_years[activeYear] && (
                 <div className="bg-transparent rounded-lg shadow-md mt-2">
-                  <p>Total Projects: {orgDetails.Lfx_years[activeYear].projects.length}</p>
+                  <p>Total Projects: {orgDetails.lfx_years[activeYear].projects.length}</p>
                   <ul className="grid grid-cols-1 gap-4 mt-4">
-                    {orgDetails.Lfx_years[activeYear].projects.map((project, index) => (
+                    {orgDetails.lfx_years[activeYear].projects.map((project, index) => (
                       <li key={index} className="border-2 px-4 py-2 rounded-lg border-gray-600">
                         <h5 className="font-bold text-gray-300">{project.title}</h5>
                         <p className="text-gray-400">{project.short_description}</p>
@@ -246,7 +245,7 @@ useEffect(() => {
             ref={issuesRef}
           >
             <h2 className="text-md font-semibold p-4">Popular Issues</h2>
-            <Issues filters={{ organizations: [orgname], label: "" }} />
+            <Issues filters={{ organizations: [orgName], label: "" }} />
           </div>
         </div>
       ) : (
@@ -254,6 +253,6 @@ useEffect(() => {
       )}
     </div>
   );
-
+};
 
 export default OrganizationDetails;
