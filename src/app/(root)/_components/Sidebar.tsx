@@ -29,14 +29,14 @@ export function SidebarDemo() {
     },
     {
       label: "Organizations",
-      href: "/gsoc-orgs",
+      href: "/LFX-orgs",
       icon: (
         <IconGitFork className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Issues",
-      href: "/gsoc-issues",
+      href: "/LFX-issues",
       icon: (
         <IconGitBranch className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
@@ -62,12 +62,12 @@ export function SidebarDemo() {
           <div>
             <SidebarLink
               link={{
-                label: "Shivang",
-                href: "https://github.com/shivang-16",
+                label: "Kumar Saurabh",
+                href: "https://github.com/Kumar-s75",
                 icon: (
                   <Image
-                    src="https://github.com/shivang-16.png"
-                    alt="Shivang"
+                    src="https://github.com/Kumar-s75.png"
+                    alt="Kumar Saurabh"
                     width={24}
                     height={24}
                     className="rounded-full"
@@ -93,7 +93,7 @@ export const Logo = () => {
         animate={{ opacity: 1 }}
         className="font-medium text-black dark:text-white whitespace-pre"
       >
-        Gsoc Issue Tracker
+        LFX Issue Tracker
       </motion.span>
     </Link>
   );
